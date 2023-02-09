@@ -20,9 +20,17 @@ class IEEEBot(commands.Bot):
         super().__init__(command_prefix=config.__cmd_prefix__, description=config.__description__, intents=intents)
 
     def run(self):
+        """
+        Calls the run function with the discord secret to 
+        connect the backend logic to a bot instance running on servers
+        """
         super().run(config.__discord_api_secret__)
         
     async def on_ready(self):
+        """
+        Waits until the bot is fully online and loaded
+        for the cogs to be loaded into the bot
+        """
         for cog in config.__cogs__:
             try:
                 await self.load_extension(cog)
