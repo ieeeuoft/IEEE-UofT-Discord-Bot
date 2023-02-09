@@ -9,9 +9,7 @@ A Discord bot created for use in hackathons run by [IEEE University of Toronto S
 - Mustafa Abdulrahman (PM)
 
 #### Associates
-- Ethan Hugh
 - Luke Cheseldine
-- Karandeep Lubana
 - Terry Luan
 - Eric Ji
 - Dalia Mahidashti 
