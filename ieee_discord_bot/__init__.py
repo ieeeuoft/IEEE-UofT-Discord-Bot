@@ -13,21 +13,18 @@ class IEEEBot(commands.Bot):
         # Turn on Events which the bot will see
         # For more information, see https://discordjs.guide/popular-topics/intents.html#privileged-intents
         intents = discord.Intents.default()
+        intents.presences = True
+        intents.members = True
+        intents.message_content = True
 
         super().__init__(command_prefix=config.__cmd_prefix__, description=config.__description__, intents=intents)
 
     def run(self):
         super().run(config.__discord_api_secret__)
         
-    async def setup_hook(self):
-        await load_cogs()
-
-    async def load_cogs(self):
+    async def on_ready(self):
         for cog in config.__cogs__:
             try:
-                await this.add_cog(cog)
+                await self.load_extension(cog)
             except:
                 print(f"Issue loading {cog}")
-    
-
-
